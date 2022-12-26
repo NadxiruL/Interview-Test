@@ -25,7 +25,6 @@
                     @endif
 
 
-
                     <table class="table">
                         <thead>
                             <tr>
@@ -60,9 +59,11 @@
 
                                     @auth
 
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" id="modalBtn">
+                                    <button type="button" class="btn btn-danger dltBtn" data-toggle="modal" data-target="#exampleModal">
                                         Delete
                                     </button>
+
+
 
                                     <a href="{{ route('newsletter.edit',$newsletter->id) }}"> <button class="btn btn-success">Edit</button></a>
                                     <a href="{{ route('newsletter.show' , $newsletter->id) }}" class="btn btn-primary">View</a>
@@ -110,7 +111,7 @@
     </div>
 
     <script type="text/javascript">
-        $("#modalBtn").on('click', function() {
+        $(".dltBtn").on('click', function() {
             $('#deleteModal').modal('show');
         });
 
