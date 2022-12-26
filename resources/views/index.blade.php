@@ -15,7 +15,7 @@
                 <div class="p-6 text-gray-900">
 
                     @if(request()->has('view_deleted'))
-                    <a href="{{ route('newsletter.index') }}" class="btn btn-info">View All Users</a>
+                    <a href="{{ route('newsletter.index') }}" class="btn btn-info viewUser" onclick="viewUser()">View All Users</a>
                     @else
 
                     @auth
@@ -119,6 +119,24 @@
             $('#deleteModal').modal('hide');
             $('.close').modal('hide');
         });
+
+        function viewUser() {
+            preventDefault();
+
+            const xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementbyId('.viewUser').innerHTML =
+
+                        this.responseText;
+                } else {
+
+                }
+            };
+            xhttp.open('GET', '/', true);
+            xhttp.send();
+        }
 
     </script>
 
